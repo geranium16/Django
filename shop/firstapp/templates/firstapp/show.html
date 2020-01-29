@@ -1,0 +1,8 @@
+<body>
+    show 페이지
+    {{ shop_list }}<br>
+
+     {% for shop in shop_list %}
+    <h3>{{shop.shop_id}} / {{shop.shop_name}}</h3><br>
+    {% endfor %}
+</body>
