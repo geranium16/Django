@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+
+{% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+    <!-- <li><a href="/polls/{{ question.id }}/">{{ question.question_text
+}}</a></li> -->
+    <!-- urls.py의 name=detail을 이용해서 연결 무조건 urls라는 파일안에서 name으로 찾는다.-->
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> 
+
+    {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+<form method="POST" action="{% url 'polls:enroll' %}">
+<!-- <form method="POST" action="/polls/enroll"></form> -->
+    {%csrf_token%}
+    질문: <input type="text" name="question" value="question">
+    <input type="submit" value="완료">
+</form>
+
+

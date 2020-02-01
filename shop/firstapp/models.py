@@ -9,6 +9,6 @@ class Shop(models.Model):
     parking_info = models.CharField(max_length=100, blank=True, null=True)
     img_path = models.CharField(max_length=255, blank=True, null=True)
 
-    class Meta: 
-        managed = False
-        db_table = 'shop'
+    # class Meta: 
+    #     managed = False
+    #     db_table = 'shop'
